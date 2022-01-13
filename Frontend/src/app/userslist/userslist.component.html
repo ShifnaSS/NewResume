@@ -1,0 +1,32 @@
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+                      <thead class="thead-primary">
+                        <tr>
+                          <th>User Id</th>
+                          <th>Name</th>
+                          <th>Email Address</th>
+                          <th>Phone No:</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor='let user of users'>
+                          <th scope="row">1</th>
+                          <td>{{user.username}}</td>
+                          <td>{{user.email_id}}</td>
+                          <td>{{user.phone}}
+                            &nbsp;&nbsp;&nbsp;<button style="
+                            float:right" class="btn btn-success" (click)="viewprofile(user)">View profile</button>
+                          </td>
+                          
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

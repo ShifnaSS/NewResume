@@ -1,1 +1,182 @@
-<p>hellooooooo</p><p>hellooooooooooooooo</p>
+<div class="wraper">
+    <div class="container">
+        <div class="left-content p-30">
+
+            <div class="nav">
+
+            </div>
+        </div>
+        <div class="main-content" id="doc2">
+            <div class="section1 p-30"  >
+                <div class="sec-title">
+                    <!-- <div class="pg-sub-title">Home</div> -->
+                    <div class="pg-title">My Profile</div>
+                </div>
+                <div class="d-flex-align-center">
+                    <div class="user-img flex-1"><img src="./images/{{UserData.image}}"></div>
+                    <div class="user-profile flex-1">
+                        <div class="pro-details">
+                            <div class="sm-text">HELLO EVERYBODY, I AM</div>
+                            <div class="name">{{UserData.name}}</div>
+                            <!-- <div class="role">UI Developer</div> -->
+
+                        </div>
+                        <div class="text">{{UserData.yourself}}</div>
+                        <div class="pr-list">
+                            <ul>
+                                <li><i class="fa fa-calendar" aria-hidden="true"></i> {{UserData.date}}</li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>{{UserData.phone}}</li>
+                                <li><i class="fa fa-envelope" aria-hidden="true"></i>{{UserData.email_id}}</li>
+                                <!-- <li><i class="fa fa-map-marker" aria-hidden="true"></i> Hyderabad, Telangana</li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- ippoketiyathu start -->
+                <div class="main-wrapper">
+
+                    <!-- <section class="section summary-section">
+                <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>Career Profile</h2>
+                <div class="summary">
+                   <h5>{{UserData.yourself}}</h5>
+                   
+                </div>
+               </section> -->
+                    <!--//section-->
+
+
+                    <section class="section summary-section"
+                        *ngIf="UserData.experiences.length && UserData.experiences[0].job_title">
+                        <h2 class="section-title"><span class="icon-holder"><i
+                                    class="fas fa-user"></i></span>Experiences</h2>
+                        <div class="summary" *ngFor="let item of UserData.experiences">
+                            <input type="text" class='rcontent' placeholder=" click here" [(ngModel)]='item.job_title'>
+                            <tr>
+                                <td>From:<span>{{item.exp_from}}</span></td>
+                                <td>To:<span>{{item.exp_to}}</span></td>
+                            </tr>
+                        </div>
+                        <!--//summary-->
+                    </section>
+                    <!--//section-->
+                    <section class="section summary-section"
+                        *ngIf="UserData.graduations.length && UserData.graduations[0].edu_title">
+                        <h2 class="section-title"><span class="icon-holder"><i
+                                    class="fas fa-user"></i></span>Educational Qualifications</h2>
+                        <div class="summary">
+                            <tr *ngFor="let item of UserData.graduations">
+                                <h4>{{item.edu_title}}<span>:</span>
+                                    <h5>{{item.edu_stream}}</h5>
+                                </h4>
+
+                                <h5><span>Percentage:</span>{{item.edu_desc}}</h5>
+                            </tr>
+
+                        </div>
+                        <!--//summary-->
+                        <div class="summary" *ngIf="UserData.posts.length && UserData.posts[0].edu_title">
+                            <tr *ngFor="let item of UserData.posts">
+                                <h4>{{item.edu_title}}<span>:</span>
+                                    <h5>{{item.edu_stream}}</h5>
+                                </h4>
+
+                                <h5><span>Percentage:</span>{{item.edu_desc}}</h5>
+                            </tr>
+
+                        </div>
+                        <!--//summary-->
+                        <div class="summary"
+                            *ngIf="UserData.qualifications.length && UserData.qualifications[0].edu_type">
+                            <tr *ngFor="let item of UserData.qualifications">
+                                <h4>{{item.course_name}}<h5>{{item.edu_type}}</h5>
+                                </h4>
+
+                                <h5><span>Percentage Scored:</span>{{item.percentage}}%</h5>
+                            </tr>
+
+                        </div>
+                        <!--//summary-->
+                    </section>
+                    <!--//section-->
+
+                    <section class="section summary-section"
+                        *ngIf="UserData.projects.length && UserData.projects[0].title">
+                        <h2 class="section-title"><span class="icon-holder"><i class="fas fa-user"></i></span>Projects
+                        </h2>
+                        <div class="summary">
+                            <table>
+                                <tr *ngFor="let item of UserData.projects">
+                                    <td>
+                                        {{item.title}}:
+                                    </td>
+                                    <td>
+                                        {{item.desc}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!--//summary-->
+                    </section>
+                    <!--//section-->
+                    <section class="section summary-section" *ngIf="UserData.progs.length && UserData.progs[0].progs">
+                        <h2 class="section-title"><span class="icon-holder"><i
+                                    class="fas fa-user"></i></span>Programming languages Known</h2>
+                        <div class="summary">
+                            <table>
+                                <tr *ngFor="let item of UserData.progs">
+                                    <td>
+                                        {{item.progs}}
+                                    </td>
+
+                                </tr>
+                            </table>
+                        </div>
+                        <!--//summary-->
+                    </section>
+                    <!--//section-->
+
+                    <!-- language section -->
+
+                    <section class="section summary-section">
+                        <h2 class="section-title" *ngIf="UserData.languages.length && UserData.languages[0].languages">
+                            <span class="icon-holder"><i class="fas fa-user"></i></span>Languages
+                        </h2>
+                        <ul class="list-unstyled interests-list" *ngFor="let item of UserData.languages">
+                            <li>* {{item.languages}}</li>
+                        </ul>
+                    </section>
+                    <!--//section-->
+
+                    <section class="section summary-section">
+                        <h2 class="section-title" *ngIf="UserData.skills.length && UserData.skills[0].skills">Skills
+                        </h2>
+                        <ul class="list-unstyled interests-list" *ngFor="let item of UserData.skills">
+                            <li>* {{item.skills}}</li>
+                        </ul>
+                    </section>
+                 
+                </div>  
+            <div>
+                <div class="social-icons-head">
+                    <ul>
+                        <li><a href=""><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                
+
+        
+         </div>
+                <div class="section">
+                    <div class="card-body">
+                         <a class="btn btn-primary" style="float: right;color: white;" (click)='save()' *ngIf='_auth.loggedIn()&&_auth.userloggedIn()'>Download
+                           Resume</a>
+                      <a class="btn btn-primary" style="float: right;color: white;background-color: green;"
+                                             (click)='share()' *ngIf='_auth.loggedIn()&&_auth.userloggedIn()'>Send a Weblink</a>
+                                              <a class="btn btn-primary" style="float: right;color: white;background-color: grey;"
+                             routerLink='/editform' *ngIf='_auth.loggedIn()&&_auth.userloggedIn()'>Edit details</a>
+                 </div>
+    </div>
+</div>

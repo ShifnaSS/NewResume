@@ -1,0 +1,288 @@
+<div class="container">
+  
+    <h1>Create your profile now</h1>
+    
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" #userform='ngForm' >
+      
+      <p>
+        <label for="name">Your full Name:<span style="color: red;">**mandatory</span></label>
+        <input type="text" id="name" name="name" formControlName="name"  [(ngModel)]='UserData.username'  class="form-control" >
+      </p>
+      <p>
+        <label for="">Date of Birth<span style="color: red;">**mandatory</span></label>
+        <input type="date" id="date" name="date" formControlName="date"  class="form-control" >
+      </p>
+      <p>
+        <label for="">Gender<span style="color: red;">**mandatory</span></label>
+      </p>
+      <p>
+        <input type="radio"  id="gender" name="gender"  formControlName="gender" value="male" > Male
+        <input type="radio"  id="gender" name="gender"  formControlName="gender" value="female" > Female
+
+      </p>
+      <h4>CONTACT DETAILS</h4>
+      <p>
+        <label for="">Email ID<span style="color: red;">**mandatory</span></label>
+        <input type="text" class="form-control" name="email_id" id="email_id"  [(ngModel)]='UserData.email_id' formControlName="email_id" >
+      </p>
+      <p>
+        
+        <input type="text" class="form-control" placeholder="Phone Number" [(ngModel)]='UserData.phone' name="phone" id="phone" formControlName="phone" >
+      </p>
+
+      <h4>QUALIFICATIONS</h4>
+     
+      <p formGroupName="highschools">
+        <label for="">High School<span style="color: red;">**mandatory</span></label>
+        <select class="form-control"   formControlName="edu_title" name="edu_title" id="edu_title" >
+            <option value selected >Select</option>
+            <option value="Board of Public Examination">Board of Public Examination</option>
+            <option value="CBSC">CBSC</option>
+            <option value="others">other</option>
+        </select>
+        <input type="text" class="form-control" placeholder="Percentage Scored"  formControlName='edu_desc' name="edu_desc" id="edu_desc" >
+        <input type="text" class="form-control" placeholder="School Name"  formControlName='edu_school' name="edu_school" id="edu_school" >
+        <input type="text" class="form-control" placeholder="Year of Pass"  formControlName='edu_year' name="edu_year" id="edu_year" >
+      </p>
+      
+      <p formGroupName="higherschools">
+        <label for="">Higher Secondary</label>
+        <select class="form-control"  formControlName='edu_title'>
+            <option value selected>Select</option>
+            <option value="Board of Public Examination">Board of Public Examination</option>
+            <option value="CBSC">CBSC</option>
+            <option value="others">other</option>
+        </select>
+        <input type="text" class="form-control" placeholder="Percentage Scored"  formControlName='edu_desc'>
+        <input type="text" class="form-control" placeholder="School Name"  formControlName='edu_school'>
+        <input type="text" class="form-control" placeholder="Year of Pass"  formControlName='edu_year'>
+      </p>
+      <p formGroupName="graduations">
+        <label for="">Graduation</label>
+        <select class="form-control"  formControlName='edu_title'>
+            <option value selected>Select Cousre</option>
+            <option value="BTECH">BTECH</option>
+            <option value="BSC">BSc</option>
+            <option value="BCA">BCA</option>
+            <option value="BCOM">BCOM</option>
+            <option value="others">other</option>
+        </select>
+        <select class="form-control"  formControlName='edu_stream' >
+            <option value selected>Select Stream</option>
+            <option value="IT/CS">IT/CS</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Civil">Civil</option>
+            <option value="Mechanical">Mechanical</option>
+            <option value="Maths">Maths</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Malayalam">Malayalam</option>
+            <option value="English">English</option>
+            <option value="Finance">Finance</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Zoology">Zoology</option>
+            <option value="Biology">Biology</option>
+            <option value="Botony">Botony</option>
+            <option value="History">History</option>
+            <option value="Politics">Politics</option>
+            <option value="others">others</option>
+        </select>
+        <input type="text" class="form-control" placeholder="Percentage Scored"  formControlName='edu_desc'>
+        <input type="text" class="form-control" placeholder="Institution Name"  formControlName='edu_inst'>
+        <input type="text" class="form-control" placeholder="Year of Pass"  formControlName='edu_year'>
+      </p>
+      <p formGroupName="posts">
+        <label for="">Post Graduation</label>
+        <select class="form-control"  formControlName='edu_title'>
+            <option value selected>Select Cousre</option>
+            <option value="MTECH">MTECH</option>
+            <option value="Bed">B.ed</option>
+            <option value="Med">M.ed</option>
+            <option value="MSC">MSc</option>
+            <option value="MCA">MCA</option>
+            <option value="MCOM">MCOM</option>
+            <option value="others">other</option>
+        </select>
+        <select class="form-control"  formControlName='edu_stream'>
+            <option value selected>Select Stream</option>
+            <option value="IT/CS">IT/CS</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Civil">Civil</option>
+            <option value="Mechanical">Mechanical</option>
+            <option value="Maths">Maths</option>
+            <option value="Physics">Physics</option>
+            <option value="Chemistry">Chemistry</option>
+            <option value="Malayalam">Malayalam</option>
+            <option value="English">English</option>
+            <option value="Finance">Finance</option>
+            <option value="Commerce">Commerce</option>
+            <option value="Zoology">Zoology</option>
+            <option value="Biology">Biology</option>
+            <option value="Botony">Botony</option>
+            <option value="History">History</option>
+            <option value="Politics">Politics</option>
+            <option value="others">others</option>
+        </select>
+        <input type="text" class="form-control" placeholder="Percentage Scored"  formControlName='edu_desc'>
+        <input type="text" class="form-control" placeholder="Institution Name"  formControlName='edu_inst'>
+        <input type="text" class="form-control" placeholder="Year of Pass"  formControlName='edu_year'>
+      </p>
+      <table class="table table-bordered" formArrayName="projects">
+        <tr>
+          <th colspan="2">Add Your Projects:</th>
+          <th width="150px"><button type="button" (click)="addproject()" class="btn btn-primary">Add</button></th>
+        </tr>
+        <tr *ngFor="let project of projects().controls; let i=index" [formGroupName]="i">
+          
+          <td>
+              Project title :
+              <input type="text" formControlName="title" class="form-control">
+          </td>
+          <td>
+              Description:
+              <input type="text" formControlName="desc" class="form-control">
+          </td>
+          <td>
+              <button (click)="removeproject(i)" class="btn btn-remove">Remove</button>
+          </td>
+        </tr>
+      </table>
+      <table class="table table-bordered" formArrayName="qualifications">
+        <tr>
+          <th colspan="2">Add additional Qualifications:</th>
+          <th width="150px"><button type="button" (click)="addQualifications()" class="btn btn-primary">Add</button></th>
+        </tr>
+        <tr *ngFor="let qualification of qualifications().controls; let i=index" [formGroupName]="i">
+          <td>
+            <label for="">Course Type</label>
+            <select class="form-control"  formControlName='edu_type'>
+                <option value selected>Select Cousre-type</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Graduation">Graduation</option>
+                <option value="post graduation">post graduation</option>
+                <option value="Short-term Course">Short-term Course</option>
+                <option value="Internship">Internship</option>
+                <option value="Training">Training</option>
+                <option value="others">othser</option>
+            </select>
+          </td>
+          <td>
+              Course name :
+              <input type="text" formControlName="course_name" class="form-control">
+          </td>
+          <td>
+              Percentage Scored:
+              <input type="text" formControlName="percentage" class="form-control">
+          </td>
+          <td>
+              <button (click)="removeQualifications(i)" class="btn btn-remove">Remove</button>
+          </td>
+        </tr>
+      </table>
+
+      <table class="table table-bordered" formArrayName="experiences">
+        <tr>
+          <th colspan="2">Job experience:</th>
+          <th width="150px"><button type="button" (click)="addexperience()" class="btn btn-primary">Add</button></th>
+        </tr>
+        <tr *ngFor="let experience of experiences().controls; let i=index" [formGroupName]="i">
+          <td>
+              Job title :
+              <input type="text" formControlName="job_title" class="form-control">
+          </td>
+          <td>
+             From :
+              <input type="text" formControlName="exp_from" class="form-control" placeholder="Year">
+          </td>
+          <td>
+            To :
+            <input type="text" formControlName="exp_to" class="form-control" placeholder="Year">
+        </td>
+          <td>
+              <button (click)="removeexperience(i)" class="btn btn-remove">Remove</button>
+          </td>
+        </tr>
+      </table>
+
+      <table class="table table-bordered" formArrayName="skills">
+        <tr>
+          <th colspan="2">Your Skills:<span style="color: red;">**mandatory</span></th>
+          <th width="150px"><button type="button" (click)="addskills()" class="btn btn-primary">Add</button></th>
+        </tr>
+        <tr *ngFor="let skill of skills().controls; let i=index" [formGroupName]="i">
+          <td>
+              <input type="text" formControlName="skills" class="form-control" required>
+          </td>
+          <td>
+              <button (click)="removeskills(i)" class="btn btn-remove">Remove</button>
+          </td>
+        </tr>
+      </table>
+      
+      <table class="table table-bordered" formArrayName="languages">
+        <tr>
+          <th colspan="2">Languages Known:<span style="color: red;">**mandatory</span></th>
+          <th width="150px"><button type="button" (click)="addlanguages()" class="btn btn-primary">Add</button></th>
+        </tr>
+        <tr *ngFor="let language of languages().controls; let i=index" [formGroupName]="i">
+          <td>
+              <input type="text" formControlName="languages" class="form-control" required>
+          </td>
+          <td>
+              <button (click)="removelanguages(i)" class="btn btn-remove">Remove</button>
+          </td>
+        </tr>
+      </table>
+
+      <table class="table table-bordered" formArrayName="progs">
+        <tr>
+          <th colspan="2">Programming Languages known:</th>
+          <th width="150px"><button type="button" (click)="addprogs()" class="btn btn-primary">Add</button></th>
+        </tr>
+        <tr *ngFor="let prog of progs().controls; let i=index" [formGroupName]="i">
+          <td>
+              Language name
+              <input type="text" formControlName="progs" class="form-control">
+              <td>
+                  Your progress in percentage
+                <input type="text" formControlName="prog_perc" class="form-control">
+              </td>
+          <td>
+              <button (click)="removeprogs(i)" class="btn btn-remove">Remove</button>
+          </td>
+        </tr>
+      </table>
+     
+      <table class="table table-bordered" formArrayName="achievements">
+        <tr>
+          <th colspan="2">Your achievements:</th>
+          <th width="150px"><button type="button" (click)="addachievements()" class="btn btn-primary">Add</button></th>
+        </tr>
+        <tr *ngFor="let achievement of achievements().controls; let i=index" [formGroupName]="i">
+          <td>
+              <input type="text" formControlName="achievements" class="form-control">
+          </td>
+          <td>
+              <button (click)="removeachievements(i)" class="btn btn-remove">Remove</button>
+          </td>
+        </tr>
+      </table>
+      <p>
+        <label for="name">Describe yourself in two or three lines:<span style="color: red;">**mandatory</span></label>
+        <textarea type="text" id="yourself" name="yourself" formControlName="yourself" class="form-control" required></textarea>
+      </p>
+      <p>
+        <label for="">Choose an image<span style="color: red;">**mandatory</span></label>
+        <input type="file" name="image" class="form-control" (change)="selectImage($event)" required='true'>
+      </p>
+      <p>
+        <input type="checkbox" formControlName="checkbox" required='true'> I caccept the Terms of Use & Privacy Policy.
+        <span class="checkmark"></span>
+      </p>
+      <button type="submit" class="btn btn-success" [disabled]="userform.form.invalid" style="background-color: darkblue;">Create Profile</button>
+      
+    </form>
+      
+    <br/>
+    <!-- {{this.userForm.value | json}} -->
+  </div>

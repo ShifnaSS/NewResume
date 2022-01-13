@@ -1,0 +1,22 @@
+<div class="limiter">
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <div class="table100">
+                <table>
+                    <tbody>
+                            <tr *ngFor="let not of nots">
+                                <td class="column1" >
+                                    <a routerLink='/userlist'  style="text-align:center;font-weight: bolder;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: larger;"><span style="color: crimson;font-size: large;font-weight: bold;">{{not.username}}</span>{{not.activity}}<span style="color: blue;font-weight: bolder;"><a href="{{not.weblink}}">{{not.weblink}}</a></span></a>
+                                </td>
+                            </tr>
+                            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

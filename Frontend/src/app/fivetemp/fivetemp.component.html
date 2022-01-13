@@ -1,0 +1,93 @@
+<div id="inner-nav"></div>
+<div id="container" >
+    <div id="profile">
+        <div id="image">
+            <img id="profile-photo" src="./images/{{UserData.image}}" alt="Profile-Image">
+            <a href="#"><i class="fas fa-pen stroke-transparent"></i></a>
+        </div>
+        <p id="name" style="color: aliceblue; font-size: medium; display: inline;"> {{UserData.name}}<br><span id="email" style="color: aliceblue;">{{UserData.email_id}}</span></p>
+        
+        <hr width="100%">
+        <div id="about">
+            
+        </div>
+       
+    </div>
+    <div id="info-cards" *ngIf="UserData.graduations.length && UserData.graduations[0].edu_title">
+        <div class="card" *ngFor="let item of UserData.graduations">
+            <p><i class="fas fa-briefcase stroke-transparent" ></i>&nbsp;&nbsp;&nbsp;Education</p>
+            <p>{{item.edu_title}}<span></span> in <span>{{item.edu_stream}} </span> {{item.edu_inst}}</p>
+            <div class="item" *ngIf="UserData.posts.length && UserData.posts[0].edu_title">
+                <p class="degree"  *ngFor="let item of UserData.posts">{{item.edu_title}} <span></span> in <span>{{item.edu_stream}} </span></p>
+                <p class="meta"  *ngFor="let item of UserData.posts">{{item.edu_inst}}</p>
+                    <p class="time"  *ngFor="let item of UserData.posts">{{item.edu_year}}</p>
+            </div>
+         
+        </div>
+        <div class="card">
+            <p><i class="fas fa-briefcase stroke-transparent"></i>&nbsp;&nbsp;&nbsp;Languages</p>
+            <div class="languages-container container-block">
+                <div class="container-block-title" *ngIf="UserData.languages.length && UserData.languages[0].languages"></div>
+                <p class="list-unstyled interests-list" *ngFor="let item of UserData.languages">
+                    <li>{{item.languages}}</li>
+                </p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <p><i class="fas fa-briefcase stroke-transparent"></i>&nbsp;&nbsp;&nbsp;Interests</p>
+            <div class="languages-container container-block">
+                <div class="container-block-title" *ngIf="UserData.skills.length && UserData.skills[0].skills"></div>
+                <p class="list-unstyled interests-list" *ngFor="let item of UserData.skills" >
+                    <li>{{item.skills}}</li>
+                </p>
+            </div>
+        </div>
+
+        <div class="card" >
+            <p><i class="fas fa-briefcase stroke-transparent"></i>&nbsp;&nbsp;&nbsp;Career Profile</p>
+            <div class="languages-container container-block">
+                <div class="container-block-title" ></div>
+                <p class="list-unstyled interests-list" >
+                    <li>{{UserData.yourself}}</li>
+                </p>
+            </div>
+        </div>
+
+        <div class="card" *ngIf="UserData.experiences.length && UserData.experiences[0].job_title">
+            <p><i class="fas fa-briefcase stroke-transparent"  ></i>&nbsp;&nbsp;&nbsp;Experiences</p>
+            <div class="languages-container container-block" *ngFor="let item of UserData.experiences">
+              
+                <p class="list-unstyled interests-list" >
+                    <li>From:<span>{{item.exp_from}}</span>To:<span>{{item.exp_to}}</span></li>
+                </p>
+            </div>
+        </div>
+
+        <div class="card">
+            <p><i class="fas fa-briefcase stroke-transparent"   *ngIf="UserData.projects.length && UserData.projects[0].title"></i>&nbsp;&nbsp;&nbsp;Projects</p>
+            <div class="languages-container container-block"*ngFor="let item of UserData.projects">
+               
+                <p class="list-unstyled interests-list" >
+                    <li><span>{{item.title}}</span>:<span>{{item.desc}}</span></li>
+                </p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <p><i class="fas fa-briefcase stroke-transparent"    *ngIf="UserData.progs.length && UserData.progs[0].progs"></i>&nbsp;&nbsp;&nbsp;Programming Languages Known</p>
+            <div class="languages-container container-block"*ngFor="let item of UserData.progs">
+                <!-- <div class="container-block-title" *ngIf="UserData.languages.length && UserData.languages[0].languages"></div> -->
+                <p class="list-unstyled interests-list" >
+                    <li>{{item.progs}}</li>
+                </p>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <a class="btn btn-primary" style="float: right;color: white;" (click)='save()' *ngIf='_auth.loggedIn()&&_auth.userloggedIn()'>Download Resume</a>
+            <a class="btn btn-primary" style="float: right;color: white;background-color: green;" (click)='share()' *ngIf='_auth.loggedIn()&&_auth.userloggedIn()'>Send a Weblink</a>
+            <a class="btn btn-primary" style="float: right;color: white;background-color: grey;" routerLink='/editform' *ngIf='_auth.loggedIn()&&_auth.userloggedIn()'>Edit details</a>
+       </div>
+    </div>
+</div>

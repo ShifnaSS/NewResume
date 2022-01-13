@@ -1,46 +1,68 @@
-<div class="container" id="container" >
-	<div class="form-container sign-up-container">
-		<form >
-			<h1>Create Account</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>Sign in</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
-			</div>
-		</div>
-	</div> 
+<div class="limiter" >
+    <div class="container-login100" >
+        <div class="wrap-login100">
+            <form class="login100-form validate-form" [formGroup]="loginData" (ngSubmit)="onLogin()" #userlogin="ngForm">
+                <span class="login100-form-title p-b-43">
+                    Signin to continue
+                </span>
+                
+                
+                <div class="wrap-input100 validate-input" >
+                    <input class="input100" type="text" name="Username" formControlName="Username"  >
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">USERNAME</span>
+                </div>
+                
+                
+                <div class="wrap-input100 validate-input"   >
+                    <input class="input100" type="password" name="pass"  formControlName="pass">
+                    <span class="focus-input100"></span>
+                    <span class="label-input100">PASSWORD</span>
+                </div>
+
+                <div class="flex-sb-m w-full p-t-3 p-b-32">
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="checkbox" type="checkbox" name="checkbox" formControlName="checkbox"
+                        [ngClass]="{ 'is-invalid': submitted && f['checkbox'].errors }">
+                        <label class="label-checkbox100" for="checkbox">
+                            Remember me
+                        </label>
+                        <div *ngIf="submitted && f['checkbox'].errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+                    </div>
+
+                    <div>
+                        <a href="#" class="txt1">
+                            Forgot Password?
+                        </a>
+                    </div>
+                </div>
+        
+
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn" [disabled]="userlogin.form.invalid">
+                        Login
+                    </button>
+                </div>
+                
+                <div class="text-center p-t-46 p-b-20">
+                    <span class="txt2">
+                       <a routerLink='/signup'>or sign up </a> 
+                    </span>
+                </div>
+
+                <!-- <div class="login100-form-social flex-c-m">
+                    <a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+                        <i class="fa fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+                         <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </div> -->
+            </form>
+
+            <div class="login100-more" style="background-image: url('../../assets/images/sign-up.jpg');">
+            </div>
+        </div>
+    </div>
 </div>

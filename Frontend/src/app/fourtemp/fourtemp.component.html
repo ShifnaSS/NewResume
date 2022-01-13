@@ -1,0 +1,157 @@
+<div class="wrapper col-lg-8 col-sm-8 col-md-8 justify-content-center" id="container">
+  <div class="intro">
+
+    <div class="profile">
+      <div class="photo">
+        <img src="./images/{{UserData.image}}">
+      </div>
+      <div class="bio">
+        <h1 class="name">{{UserData.name}}</h1>
+        <p class="profession"></p>
+      </div>
+    </div>
+   
+    <div class="intro-section contact">
+      <h1 class="title">Contact</h1>
+      <div class="info-section">
+        <i class="fas fa-phone"></i>
+        <span>{{UserData.phone}}</span><br>
+        <i class="fas fa-phone"></i>
+        <span>{{UserData.email_id}}</span>
+      </div>
+    </div>
+
+
+    <div class="intro-section follow">
+     
+      <div class="info-section link">
+        
+      </div>
+      <div class="info-section link">
+       
+      </div>
+      <div class="info-section link">
+       
+      </div>
+    </div>
+  </div>
+
+
+  <div class="detail">
+
+    <div class="detail-section edu">
+      <div class="detail-title">
+        <div class="title-icon">
+          <i class="fas fa-user-graduate"></i>
+        </div>
+        <span>Eduation</span>
+      </div>
+
+      <div class="detail-content" *ngIf="UserData.graduations.length && UserData.graduations[0].edu_title">
+        <div class="timeline-block" *ngFor="let item of UserData.graduations">
+          <h1>{{item.edu_title}} &nbsp; in &nbsp; {{item.edu_stream}} &nbsp; &nbsp; {{item.edu_inst}}</h1>
+          <h1 *ngFor="let item of UserData.posts">{{item.edu_inst}}</h1>
+          <!-- <p>National Tsing Hua University, Taiwan</p> -->
+           <time></time>
+        </div>
+        <div class="timeline-block" *ngIf="UserData.posts.length && UserData.posts[0].edu_title">
+          <h1 *ngFor="let item of UserData.posts">{{item.edu_title}} &nbsp; in &nbsp;{{item.edu_stream}}</h1>
+          <p *ngFor="let item of UserData.posts">{{item.edu_year}}</p>
+          <time></time>
+        </div>
+      </div>
+    </div>
+
+
+    
+        <div class="detail-section edu">
+          <div class="detail-title">
+            <div class="title-icon">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <span>Languages</span>
+         </div>
+          <div class="detail-content" *ngIf="UserData.languages.length && UserData.languages[0].languages">
+            <div class="timeline-block" *ngFor="let item of UserData.languages">
+              <h1> {{item.languages}} </h1>
+              <time></time>
+            </div>
+           </div>
+          </div>
+
+          <div class="detail-section edu">
+            <div class="detail-title">
+              <div class="title-icon">
+                 <i class="fas fa-user-graduate"></i>
+              </div>
+              <span>Interests</span>
+            </div>
+            <div class="detail-content" *ngIf="UserData.skills.length && UserData.skills[0].skills">
+              <div class="timeline-block" *ngFor="let item of UserData.skills">
+                <h1> {{item.skills}} </h1>
+                <time></time>
+              </div>
+            </div>
+          </div>
+
+          <div class="detail-section edu">
+            <div class="detail-title">
+              <div class="title-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <span>Career Profile</span>
+            </div>
+            <div class="detail-content" >
+              <div class="timeline-block" >
+                <h1> {{UserData.yourself}} </h1>
+                <time></time>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="detail-section edu" *ngIf="UserData.experiences.length && UserData.experiences[0].job_title">
+            <div class="detail-title">
+              <div class="title-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+             <span>Experiences</span>
+          </div>
+          <div class="detail-content" >
+            <div class="timeline-block" *ngFor="let item of UserData.experiences" >
+              <h1> {{item.exp_from}}&nbsp;To:&nbsp;{{item.exp_to}} </h1>
+              <time></time>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="detail-section edu" *ngIf="UserData.progs.length && UserData.progs[0].progs">
+          <div class="detail-title">
+            <div class="title-icon">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <span>Programming languages Known</span>
+          </div>
+          <div class="detail-content" >
+            <div class="timeline-block" *ngFor="let item of UserData.progs">
+              <h1 *ngFor="let item of UserData.progs">  {{item.progs}}</h1>
+              <time></time>
+            </div>
+         </div>
+       </div>
+
+      <!-- <div class="card-body">
+        <a class="btn btn-primary" style="float: right;color: white;" (click)='save()' *ngIf='_auth.loggedIn()&&_auth.userloggedIn()'>Download Resume</a>
+        <a class="btn btn-primary" style="float: right;color: white;background-color: green;" (click)='share()' *ngIf='_auth.loggedIn()&&_auth.userloggedIn()'>Send a Weblink</a>
+        <a class="btn btn-primary" style="float: right;color: white;background-color: grey;" routerLink='/editform' *ngIf='_auth.loggedIn()&&_auth.userloggedIn()'>Edit details</a>
+      </div> -->
+  </div>
+</div>
+   
+<section class=" col-lg-12 col-sm-12 col-md-12 justify-content-center text-center mt-3 mb-3">
+  <button type="button" class="btn btn btn-dark m-1" (click)='save()'*ngIf='_auth.loggedIn()&&_auth.userloggedIn()'>Download Resume</button>
+  <button type="button" class="btn btn-success m-1" (click)='share()' *ngIf='_auth.loggedIn()&&_auth.userloggedIn()'>Send a Weblink</button>
+  <a routerLink='/editform' *ngIf='_auth.loggedIn()&&_auth.userloggedIn()'><button type="button " class="btn btn-warning m-1" >Edit details</button></a> 
+</section> 
+ 
